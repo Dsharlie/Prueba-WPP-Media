@@ -16,13 +16,13 @@ El dataset contiene métricas de comportamiento de usuarios como actividad, comp
 
 
 # Estructura del repositorio
-|---|
-├── Dataset_Pruebas.csv
-├── Parte 1 _ EDA.ipynb
-├── Parte 2_Modelo.ipynb
-├── Parte 3_ LLM + Prompting.ipynb
-├── Parte 4_ Diseño de Agente_ RAG.ipynb
-└── README.md
+
+* Dataset_Pruebas.csv
+* Parte 1 _ EDA.ipynb
+* Parte 2_Modelo.ipynb
+* Parte 3_ LLM + Prompting.ipynb
+* Parte 4_ Diseño de Agente_ RAG.ipynb
+* README.md
 
 # Descripción del Dataset
 
