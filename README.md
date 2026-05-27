@@ -1,139 +1,126 @@
-# Churn Prediction Technical Test
+# Prueba Técnica — Predicción de Churn
 
-## Overview
+## Descripción General
 
-This repository contains the solution for a technical assessment focused on churn analysis using behavioral user data calculated over rolling 30-day windows.
+Este repositorio contiene la solución desarrollada para una prueba técnica enfocada en análisis de churn utilizando datos de comportamiento de usuarios calculados sobre ventanas móviles (rolling windows) de 30 días.
 
-The objective of the exercise was to evaluate:
+El objetivo del ejercicio fue evaluar capacidades relacionadas con:
+
 - Exploratory Data Analysis (EDA)
-- Outlier detection and handling
-- Machine Learning modeling
+- Detección y tratamiento de outliers
+- Modelado de Machine Learning
 - LLM + Prompt Engineering
-- Conceptual Agent / RAG system design
+- Diseño conceptual de un sistema Agente / RAG
 
-The dataset contains user behavioral metrics such as activity, purchases and spend over the last 30 days, along with a churn target variable.
+El dataset contiene métricas de comportamiento de usuarios como actividad, compras y gasto en los últimos 30 días, junto con una variable objetivo de churn.
 
----
 
-# Repository Structure
+# Estructura del repositorio
 
-```bash
 ├── Dataset_Pruebas.csv
 ├── Parte 1 _ EDA.ipynb
 ├── Parte 2_Modelo.ipynb
 ├── Parte 3_ LLM + Prompting.ipynb
 ├── Parte 4_ Diseño de Agente_ RAG.ipynb
 └── README.md
-```
 
----
+# Descripción del Dataset
 
-# Dataset Description
+El dataset contiene aproximadamente 2.020 registros de usuarios con las siguientes variables:
 
-The dataset contains approximately 2,020 user records with the following variables:
-
-| Variable | Description |
+| Variable | Descripción |
 |---|---|
-| user_id | Unique user identifier |
-| age | User age |
-| country | User country |
-| events_last_30d | Number of events in the last 30 days |
-| purchases_last_30d | Number of purchases in the last 30 days |
-| total_spend_last_30d | Total spend in the last 30 days |
-| churned | Target variable (1 = churn, 0 = active) |
+| user_id | Identificador único del usuario |
+| age | Edad del usuario |
+| country | País del usuario |
+| events_last_30d | Número de eventos en los últimos 30 días |
+| purchases_last_30d | Número de compras en los últimos 30 días |
+| total_spend_last_30d | Gasto total en los últimos 30 días |
+| churned | Variable objetivo (1 = churn, 0 = activo) |
 
-The features were generated using rolling 30-day windows updated daily.
+Las variables fueron calculadas utilizando ventanas móviles de 30 días actualizadas diariamente.
 
----
-
-# Part 1 — Exploratory Data Analysis (EDA)
+# Parte 1 — Exploratory Data Analysis (EDA)
 
 Notebook:
 - `Parte 1 _ EDA.ipynb`
 
-Main tasks:
-- Dataset exploration
-- Distribution analysis
-- Correlation analysis
-- Duplicate detection
-- Outlier detection and interpretation
-- Rolling window implications
-- Data quality risk analysis
+Principales actividades:
+- Exploración del dataset
+- Análisis de distribuciones
+- Análisis de correlaciones
+- Detección de duplicados
+- Identificación e interpretación de outliers
+- Implicaciones del rolling window
+- Riesgos de calidad de datos
 
-Three categories of outliers were identified:
-1. Domain outliers (invalid ages)
-2. Extreme statistical outliers (possible bots / logging issues)
-3. Negative economic values (possible refunds or chargebacks)
+Se identificaron tres categorías principales de outliers:
 
----
+1. Outliers de dominio (edades inválidas)
+2. Outliers estadísticos extremos (posibles bots o errores de logging)
+3. Valores económicos negativos (posibles devoluciones o chargebacks)
 
-# Part 2 — Machine Learning Model
+# Parte 2 — Modelo de Machine Learning
 
 Notebook:
 - `Parte 2_Modelo.ipynb`
 
-Models implemented:
+Modelos implementados:
 - Logistic Regression
 - Random Forest
 
-Evaluation metrics:
+Métricas evaluadas:
 - F1 Score
 - ROC AUC
 - Classification Report
 
-Additional analysis:
-- Feature importance
-- Model limitations
-- Data leakage risks
-- Production improvement proposal
+Análisis adicional:
+- Importancia de variables
+- Limitaciones del modelo
+- Riesgos de data leakage
+- Propuesta de mejora en producción
 
-Main conclusion:
-The available variables showed limited predictive power for churn prediction, with performance close to random classification (ROC AUC ≈ 0.5), suggesting the need for richer behavioral and historical features.
+Conclusión principal:
+Las variables disponibles mostraron capacidad predictiva limitada para churn, con métricas cercanas a un clasificador aleatorio (ROC AUC ≈ 0.5), lo que sugiere la necesidad de incorporar variables históricas y de comportamiento más robustas.
 
----
-
-# Part 3 — LLM + Prompt Engineering
+# Parte 3 — LLM + Prompt Engineering
 
 Notebook:
 - `Parte 3_ LLM + Prompting.ipynb`
 
-This section evaluates the use of LLMs for generating analytical summaries from ML results.
+Esta sección evalúa el uso de Large Language Models (LLMs) para generar resúmenes automáticos a partir de resultados analíticos y de Machine Learning.
 
-Included:
-- Two prompt strategies
-- Comparison between technical and business-oriented prompting
-- Generated outputs
-- Prompt evaluation
-- Hallucination mitigation strategies
+Incluye:
+- Diseño de dos prompts distintos
+- Comparación entre prompting técnico y orientado a negocio
+- Outputs generados
+- Evaluación de resultados
+- Estrategias para evitar alucinaciones
 
-Key focus:
+Enfoques principales:
 - Grounding
-- Prompt specificity
-- Structured context
-- Validation of generated outputs
+- Contexto estructurado
+- Restricción de información
+- Validación manual de outputs
 
----
-
-# Part 4 — Conceptual Agent / RAG Design
+# Parte 4 — Diseño Conceptual de Agente / RAG
 
 Notebook:
 - `Parte 4_ Diseño de Agente_ RAG.ipynb`
 
-This section presents a conceptual architecture for an AI assistant capable of answering questions such as:
+Esta sección presenta una arquitectura conceptual basada en Retrieval Augmented Generation (RAG) para responder preguntas como:
 
-> “What type of users have the highest probability of churn?”
+> “¿Qué tipo de usuarios tienen mayor probabilidad de churn?”
 
-Included:
-- Conceptual RAG architecture
-- Retrieval pipeline
-- Vector database strategy
-- Embeddings proposal
-- Validation mechanisms
-- Hallucination risks and mitigation
+Incluye:
+- Arquitectura conceptual
+- Pipeline de recuperación de información
+- Estrategia de vectorización
+- Embeddings propuestos
+- Validación de respuestas
+- Riesgos de alucinación y mitigación
 
----
-
-# Technologies Used
+# Tecnologías Utilizadas
 
 - Python
 - Pandas
@@ -143,41 +130,34 @@ Included:
 - Scikit-learn
 - Jupyter Notebook
 
-Conceptual tools discussed:
+Herramientas conceptuales discutidas:
 - LLMs
 - RAG
 - Vector Databases
 - Embeddings
 - LangChain / LlamaIndex
 
----
+# Principales Hallazgos
 
-# Key Findings
+- Desbalance severo de clases (~9.5% churn)
+- Correlaciones débiles entre variables y churn
+- Presencia de problemas de calidad de datos y outliers
+- Riesgo potencial de data leakage temporal debido al esquema rolling window
+- Variables insuficientes para una predicción robusta de churn
 
-- Severe class imbalance (~9.5% churn)
-- Weak linear correlations between features and churn
-- Presence of data quality issues and outliers
-- Potential temporal leakage risks due to rolling windows
-- Current features are insufficient for robust churn prediction
+# Uso de Inteligencia Artificial
 
----
-
-# AI Usage Disclosure
-
-Artificial Intelligence tools were used during:
+Se utilizaron herramientas de Inteligencia Artificial para:
 - brainstorming,
-- structuring explanations,
+- estructuración de explicaciones,
 - prompt engineering,
-- and reviewing analytical conclusions.
+- y revisión de conclusiones analíticas.
 
-All generated outputs were manually validated against:
-- Python results,
-- model metrics,
-- and exploratory analysis findings.
+Todos los outputs generados fueron validados manualmente contra:
+- resultados en Python,
+- métricas del modelo,
+- y hallazgos obtenidos durante el análisis exploratorio.
 
----
+# Autor
 
-# Author
-
-Technical assessment developed by:
-D'Sharlie
+Prueba técnica desarrollada por: D'Sharlie sANCHEZ rOZO
