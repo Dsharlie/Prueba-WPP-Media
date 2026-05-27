@@ -160,4 +160,4 @@ Todos los outputs generados fueron validados manualmente contra:
 
 # Autor
 
-Prueba técnica desarrollada por: D'Sharlie sANCHEZ rOZO
+Prueba técnica desarrollada por: D'Sharlie Sanchez Rozo
